@@ -1,5 +1,8 @@
 package delegate;
 
+import java.util.List;
+
+import entities.Commentaire;
 import locator.ServiceLocator;
 import services.interfaces.CommentServicesRemote;
 
@@ -17,6 +20,11 @@ public class CommentaireDelegate {
 
 	public static Boolean doDeleteCommentaireOfAUser(Integer idAnnoucement, Integer idUser) {
 		return getProxy().deleteCommentaireOfAUser(idAnnoucement, idUser);
+
+	}
+
+	public static List<Commentaire> doFindAllCommentairesByAnnoncementId(Integer idAnnoncement) {
+		return getProxy().findAllCommentairesByAnnoncementId(idAnnoncement);
 
 	}
 

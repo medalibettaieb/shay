@@ -136,49 +136,43 @@ public class AnnoncementsList extends JFrame {
 				addCommentaire.setVisible(true);
 			}
 		});
-		
+
 		JButton btnShowCommentaires = new JButton("show commentaires");
+		btnShowCommentaires.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				CommentairesList commentairesList = new CommentairesList(annoncementSelected.getId());
+				commentairesList.setVisible(true);
+			}
+		});
 		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(10)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(lblName)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(lblPrice)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addGap(32)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnNewButton_1)
-						.addComponent(btnNewButton))
-					.addPreferredGap(ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnShowCommentaires)
-						.addComponent(btnNewButton_2))
-					.addGap(28))
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(15)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblName)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNewButton)
-						.addComponent(btnShowCommentaires))
-					.addGap(6)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblPrice)
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNewButton_1)
-						.addComponent(btnNewButton_2))
-					.addGap(29))
-		);
+		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup().addGap(10)
+						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_panel.createSequentialGroup().addComponent(lblName)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup().addComponent(lblPrice)
+								.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(textField_1,
+										GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)))
+				.addGap(32)
+				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING).addComponent(btnNewButton_1)
+						.addComponent(btnNewButton)).addPreferredGap(ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+				.addGroup(gl_panel.createParallelGroup(Alignment.LEADING).addComponent(btnShowCommentaires)
+						.addComponent(btnNewButton_2)).addGap(28)));
+		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup().addGap(15)
+						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(lblName)
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnNewButton).addComponent(btnShowCommentaires))
+				.addGap(6)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(lblPrice)
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnNewButton_1).addComponent(btnNewButton_2)).addGap(29)));
 		panel.setLayout(gl_panel);
 
 		table = new JTable();

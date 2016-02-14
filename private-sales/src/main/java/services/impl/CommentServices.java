@@ -1,5 +1,7 @@
 package services.impl;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -56,6 +58,12 @@ public class CommentServices implements CommentServicesRemote, CommentServicesLo
 		} catch (Exception e) {
 		}
 		return b;
+	}
+
+	@Override
+	public List<Commentaire> findAllCommentairesByAnnoncementId(Integer idAnnoncement) {
+		return entityManager.createQuery("select c from Commentaire c where c.annoncement.id=:param", Commentaire.class)
+				.setParameter("param", idAnnoncement).getResultList();
 	}
 
 }
