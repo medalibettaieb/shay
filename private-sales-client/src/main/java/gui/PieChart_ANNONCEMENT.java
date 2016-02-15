@@ -58,5 +58,6 @@ public class PieChart_ANNONCEMENT extends ApplicationFrame {
 		demo.setSize(560, 367);
 		RefineryUtilities.centerFrameOnScreen(demo);
 		demo.setVisible(true);
+		demo.pack();
 	}
 }

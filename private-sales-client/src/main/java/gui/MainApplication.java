@@ -1,6 +1,8 @@
 package gui;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -10,10 +12,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.MenuKeyEvent;
-import javax.swing.event.MenuKeyListener;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class MainApplication extends JFrame {
 
@@ -51,18 +49,19 @@ public class MainApplication extends JFrame {
 		JMenuItem mntmAnnoncementList = new JMenuItem("annoncement list");
 		mntmAnnoncementList.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AnnoncementsList annoncementsList=new AnnoncementsList();
+				AnnoncementsList annoncementsList = new AnnoncementsList();
 				annoncementsList.setVisible(true);
 			}
 		});
-		
+
 		mnNewMenu.add(mntmAnnoncementList);
 
 		JMenuItem mntmStatistique = new JMenuItem("statistique");
 		mntmStatistique.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PieChart_ANNONCEMENT pieChart_ANNONCEMENT=new PieChart_ANNONCEMENT("stat");
+				PieChart_ANNONCEMENT pieChart_ANNONCEMENT = new PieChart_ANNONCEMENT("stat");
 				pieChart_ANNONCEMENT.setVisible(true);
+				pieChart_ANNONCEMENT.pack();
 			}
 		});
 		mnNewMenu.add(mntmStatistique);
