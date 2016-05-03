@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+	<h:form>
+		<h:dataTable value="#{annoucementBean.annoncements}" var="a"
+			border="2">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="name" />
+				</f:facet>
+				<h:outputText value="#{a.name}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="price" />
+				</f:facet>
+				<h:outputText value="#{a.price}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#" />
+				</f:facet>
+				<h:commandButton action="#{annoucementBean.selectAnnoucement(a)}"
+					value="select" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#" />
+				</f:facet>
+				<h:commandButton action="#{annoucementBean.viewCommentaires(a)}"
+					value="view commentaires" />
+			</h:column>
+		</h:dataTable>
+
+		<h:panelGrid rendered="#{annoucementBean.displayPanel}" border="2"
+			columns="2">
+			<h:outputText value="name" />
+			<h:outputText value="#{annoucementBean.annoncementSelected.name}" />
+			<h:outputText value="commentaire" />
+			<h:inputText value="#{annoucementBean.textOfCommentaire}" />
+			<h:commandButton action="#{annoucementBean.doAddCommentaire()}"
+				value="add commentaire" />
+		</h:panelGrid>
+		<h:dataTable value="#{annoucementBean.commentaires}" var="c"
+			border="2" rendered="#{annoucementBean.displayPanel2}">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="commentaire" />
+				</f:facet>
+				<h:outputText value="#{c.text}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#" />
+				</f:facet>
+				<h:commandButton action="#{annoucementBean.deleteCommentaire(c)}"
+					value="delete commentaires" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</body>
+</html>
