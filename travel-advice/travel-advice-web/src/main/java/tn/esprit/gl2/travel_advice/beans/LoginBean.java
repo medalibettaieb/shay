@@ -20,7 +20,6 @@ public class LoginBean {
 		System.out.println(navigateTo);
 		User userLoggedIn = userServicesLocal.login(user.getLogin(), user.getPassword());
 		if (userLoggedIn != null) {
-			System.out.println(userLoggedIn.getEmail());
 			if (userLoggedIn instanceof Traveler) {
 				navigateTo = "/pages/travelerHome";
 				user = userLoggedIn;

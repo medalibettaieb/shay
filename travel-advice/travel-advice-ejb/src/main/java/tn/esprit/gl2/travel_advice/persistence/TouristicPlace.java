@@ -24,6 +24,7 @@ public class TouristicPlace implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
+	private String imgLink;
 
 	@ManyToMany
 	private List<User> usersWishlisted;
@@ -88,6 +89,14 @@ public class TouristicPlace implements Serializable {
 
 	public void setCity(City city) {
 		this.city = city;
+	}
+
+	public String getImgLink() {
+		return imgLink;
+	}
+
+	public void setImgLink(String imgLink) {
+		this.imgLink = imgLink;
 	}
 
 }

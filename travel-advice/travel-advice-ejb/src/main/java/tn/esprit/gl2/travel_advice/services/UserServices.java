@@ -23,16 +23,16 @@ public class UserServices implements UserServicesRemote, UserServicesLocal {
 
 	@Override
 	public User login(String login, String password) {
-		User user = null;
-		Query query = entityManager.createQuery("select u from User u where u.login = :param1 and u.password= :param2");
-		query.setParameter("param1", login);
-		query.setParameter("param2", password);
+		User utilisateur = null;
+		Query query = entityManager.createQuery("select u from User u where u.login=:l and u.password=:p");
+		query.setParameter("l", login);
+		query.setParameter("p", password);
 		try {
-			user = (User) query.getSingleResult();
+			utilisateur = (User) query.getSingleResult();
 		} catch (Exception e) {
-			System.err.println("not found");
 		}
-		return user;
+
+		return utilisateur;
 	}
 
 }

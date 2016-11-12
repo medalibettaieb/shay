@@ -16,15 +16,15 @@ import tn.esprit.gl2.travel_advice.services.CityServicesLocal;
 public class CityServicesBean {
 	private List<City> cities = new ArrayList<>();
 	private List<TouristicPlace> touristicPlaces = new ArrayList<>();
-	private boolean showTouristicPlacesByCity = true;
-	private boolean showCities = false;
+	private boolean showTouristicPlacesByCity = false;
+	private boolean showCities = true;
 	@EJB
 	private CityServicesLocal cityServicesLocal;
 	private int idCity;
 
 	public String doSelect() {
 		showTouristicPlacesByCity = true;
-		showCities=true;
+		showCities = false;
 		return "";
 	}
 
@@ -38,7 +38,7 @@ public class CityServicesBean {
 	}
 
 	public List<TouristicPlace> getTouristicPlaces() {
-		touristicPlaces=cityServicesLocal.findAllTouristicPlacesByIdCity(idCity);
+		touristicPlaces = cityServicesLocal.findAllTouristicPlacesByIdCity(idCity);
 		return touristicPlaces;
 	}
 

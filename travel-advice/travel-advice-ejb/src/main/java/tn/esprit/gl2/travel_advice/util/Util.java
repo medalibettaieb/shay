@@ -36,23 +36,25 @@ public class Util {
 	@PostConstruct
 	public void initDB() throws ParseException {
 
-		Traveler traveler = new Traveler("t", "t", "t@esprit.tn", "tarek", "kouki", "0936251",
-				format.parse("06/11/1980"));
-		Traveler traveler2 = new Traveler("r", "r", "r@esprit.tn", "ramzi", "toumi", "0978251",
-				format.parse("01/01/1990"));
-		Traveler traveler3 = new Traveler("c", "c", "c@esprit.tn", "chayma", "khelifi", "0236588",
-				format.parse("01/01/1991"));
+		Traveler traveler = new Traveler("t", "t", "tarek", "kouki", "32145699", format.parse("01/01/1991"));
+		Traveler traveler2 = new Traveler("r", "r", "rim", "mahmoudi", "32145687", format.parse("01/01/1992"));
+		Traveler traveler3 = new Traveler("h", "h", "hela", "mohamed", "32145658", format.parse("01/01/1993"));
+		Traveler traveler4 = new Traveler("z", "z", "zied", "radhi", "32154456", format.parse("01/01/1994"));
 
 		City city = new City("PARIS");
-		city.setImgLink("avatar2");
+		city.setImgLink("fr.png");
 		
 		City city2 = new City("TUNISIE");
-		city2.setImgLink("avatar3");
+		city2.setImgLink("t.jpg");
 
 		TouristicPlace place = new TouristicPlace("TOUR EFFEL", city);
+		place.setImgLink("tour.jpg");
 		TouristicPlace place2 = new TouristicPlace("SIDI BOUSAIID", city2);
+		place2.setImgLink("sidi.jpg");
 		TouristicPlace place3 = new TouristicPlace("MEDINA", city2);
+		place3.setImgLink("medina.jpg");
 		TouristicPlace place4 = new TouristicPlace("HAMMAMET", city2);
+		place4.setImgLink("ham.jpg");
 
 		List<TouristicPlace> touristicPlaces = new ArrayList<>();
 		touristicPlaces.add(place);
@@ -68,6 +70,7 @@ public class Util {
 		entityManager.merge(traveler);
 		entityManager.merge(traveler2);
 		entityManager.merge(traveler3);
+		entityManager.merge(traveler4);
 
 		entityManager.merge(city);
 		entityManager.merge(city2);

@@ -3,10 +3,7 @@ package tn.esprit.gl2.travel_advice.persistence;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 public class Traveler extends User implements Serializable {
@@ -21,9 +18,17 @@ public class Traveler extends User implements Serializable {
 	public Traveler() {
 	}
 
-	public Traveler(String login, String password, String email, String firstname, String lastname, String phoneNumber,
+	public Traveler(String firstname, String lastname, String phoneNumber, Date birthDate) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.phoneNumber = phoneNumber;
+		this.birthDate = birthDate;
+	}
+
+	public Traveler(String login, String password, String firstname, String lastname, String phoneNumber,
 			Date birthDate) {
-		super(login, password, email);
+		super(login, password);
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.phoneNumber = phoneNumber;
@@ -46,7 +51,6 @@ public class Traveler extends User implements Serializable {
 		this.lastname = lastname;
 	}
 
-	@Column(name = "phone_number")
 	public String getPhoneNumber() {
 		return this.phoneNumber;
 	}
@@ -55,8 +59,6 @@ public class Traveler extends User implements Serializable {
 		this.phoneNumber = phoneNumber;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "birth_date")
 	public Date getBirthDate() {
 		return this.birthDate;
 	}

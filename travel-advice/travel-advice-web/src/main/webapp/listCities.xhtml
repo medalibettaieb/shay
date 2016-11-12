@@ -7,19 +7,18 @@
 
 <h:head></h:head>
 <body>
-	<h:form id="f1">
-		<p:carousel value="#{cityServicesBean.cities}" headerText="Responsive"
+	<h:form id="f1" rendered="#{cityServicesBean.showCities}">
+		<p:carousel value="#{cityServicesBean.cities}" headerText="cities"
 			var="c" itemStyle="text-align:center" responsive="true">
 			<p:panelGrid columns="2" style="width:100%;margin:10px 0px"
 				columnClasses="label,value" layout="grid"
 				styleClass="ui-panelgrid-blank">
 				<f:facet name="header">
-					<p:graphicImage name="img/#{c.imgLink}.png" />
+					<p:graphicImage name="img/#{c.imgLink}" />
 				</f:facet>
 
 				<h:outputText value="Id:" />
 				<h:outputText value="#{c.id}" />
-
 				<h:outputText value="name" />
 				<h:outputText value="#{c.name}" />
 
@@ -40,23 +39,20 @@
 
 		<p:carousel value="#{cityServicesBean.touristicPlaces}"
 			headerText="Touristic" var="t"
-			itemStyle="height:200px;text-align:center" numVisible="1"
+			itemStyle="text-align:center" numVisible="1"
 			easing="easeOutBounce" style="width:250px" cricular="true">
 			<h:panelGrid columns="2" style="width:100%"
 				columnClasses="label,value">
 				<f:facet name="header">
-					<!-- 	<p:graphicImage name="img/avatar4.png" /> -->
+					<p:graphicImage name="img/#{t.imgLink}" />
 				</f:facet>
-
 				<h:outputText value="Id:" />
 				<h:outputText value="#{t.id}" />
 				<h:outputText value="name:" />
 				<h:outputText value="#{t.name}" />
-
-
-
 				<f:facet name="footer">
-
+					<h:commandButton action="update" value="comment" />
+					<h:commandButton action="update" value="return" />
 				</f:facet>
 			</h:panelGrid>
 		</p:carousel>
