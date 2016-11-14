@@ -56,6 +56,11 @@
 							<f:setPropertyActionListener value="#{t.id}"
 								target="#{loginBean.idT}"></f:setPropertyActionListener>
 						</h:commandButton>
+						<h:commandButton action="#{cityServicesBean.doAddTouristicPlace()}"
+							value="add to wishList">
+							<f:setPropertyActionListener value="#{t.id}"
+								target="#{loginBean.idT}"></f:setPropertyActionListener>
+						</h:commandButton>
 						<h:commandButton action="#{cityServicesBean.doDeSelect()}"
 							value="return" />
 					</f:facet>

@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+	<h:form>
+		<h:commandButton action="#{cityServicesBean.doSelectWish()}"
+			value="refrech" />
+	</h:form>
+	<h:dataTable border="1" value="#{cityServicesBean.wishlist}" var="t">
+		<h:column id="column1">
+			<f:facet name="header">
+				<h:outputText value="name of the touristic place"></h:outputText>
+			</f:facet>
+			<h:outputText value="#{t.name}" />
+		</h:column>
+	</h:dataTable>
+</body>
+</html>

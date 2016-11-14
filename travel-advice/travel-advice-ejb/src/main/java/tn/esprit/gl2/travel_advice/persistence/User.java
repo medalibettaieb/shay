@@ -3,6 +3,7 @@ package tn.esprit.gl2.travel_advice.persistence;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +24,7 @@ public class User implements Serializable {
 	@OneToMany(mappedBy = "user")
 	private List<Comment> comments;
 
-	@ManyToMany(mappedBy = "usersWishlisted")
+	@ManyToMany(mappedBy = "usersWishlisted", cascade = CascadeType.MERGE)
 	private List<TouristicPlace> wishList;
 
 	public User() {
