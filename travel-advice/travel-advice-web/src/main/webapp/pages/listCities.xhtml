@@ -36,11 +36,11 @@
 	</h:form>
 	<h:form id="f2"
 		rendered="#{cityServicesBean.showTouristicPlacesByCity}">
-
-		<p:carousel value="#{cityServicesBean.touristicPlaces}"
-			headerText="Touristic" var="t"
+<h:panelGrid columns="2">
+<p:carousel value="#{cityServicesBean.touristicPlaces}"
+			headerText="Touristic place" var="t"
 			itemStyle="text-align:center" numVisible="1"
-			easing="easeOutBounce" style="width:250px" cricular="true">
+			easing="easeOutBounce" style="width:350px" cricular="true">
 			<h:panelGrid columns="2" style="width:100%"
 				columnClasses="label,value">
 				<f:facet name="header">
@@ -51,11 +51,16 @@
 				<h:outputText value="name:" />
 				<h:outputText value="#{t.name}" />
 				<f:facet name="footer">
-					<h:commandButton action="update" value="comment" />
+					<h:commandButton action="#{cityServicesBean.doComment()}" value="comment" >
+					<f:setPropertyActionListener value="#{t.id}" target="#{loginBean.idT}"></f:setPropertyActionListener>
+					</h:commandButton>
 					<h:commandButton action="update" value="return" />
 				</f:facet>
 			</h:panelGrid>
 		</p:carousel>
+		<h:commandButton action="update" value="ss" />
+</h:panelGrid>
+		
 	</h:form>
 </body>
 </html>

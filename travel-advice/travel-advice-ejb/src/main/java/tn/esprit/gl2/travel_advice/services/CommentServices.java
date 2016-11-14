@@ -1,5 +1,7 @@
 package tn.esprit.gl2.travel_advice.services;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -32,6 +34,13 @@ public class CommentServices implements CommentServicesRemote, CommentServicesLo
 
 		entityManager.merge(comment);
 
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Comment> findAllCommentsByTouristicPlaceId(int idTouristicPlace) {
+		return entityManager.createQuery("select c from Comment c where c.touristicPlace.id=:p")
+				.setParameter("p", idTouristicPlace).getResultList();
 	}
 
 }

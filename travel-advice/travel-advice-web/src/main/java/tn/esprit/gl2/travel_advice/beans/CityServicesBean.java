@@ -5,14 +5,14 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 
 import tn.esprit.gl2.travel_advice.persistence.City;
 import tn.esprit.gl2.travel_advice.persistence.TouristicPlace;
 import tn.esprit.gl2.travel_advice.services.CityServicesLocal;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class CityServicesBean {
 	private List<City> cities = new ArrayList<>();
 	private List<TouristicPlace> touristicPlaces = new ArrayList<>();
@@ -26,6 +26,10 @@ public class CityServicesBean {
 		showTouristicPlacesByCity = true;
 		showCities = false;
 		return "";
+	}
+
+	public String doComment() {
+		return "/pages/addComment?faces-redirect=true";
 	}
 
 	public List<City> getCities() {

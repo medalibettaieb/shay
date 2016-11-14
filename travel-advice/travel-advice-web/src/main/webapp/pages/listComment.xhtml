@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+
+	<h:dataTable border="1" value="#{commentServicesBean.comments}" var="c">
+		<h:column id="column1">
+			<f:facet name="header">
+				<h:outputText value="column1"></h:outputText>
+			</f:facet>
+			<h:outputText value="#{c.text}" />
+		</h:column>
+		<h:column id="column2">
+			<f:facet name="header">
+				<h:outputText value="column2"></h:outputText>
+			</f:facet>
+		</h:column>
+	</h:dataTable>
+</body>
+</html>
