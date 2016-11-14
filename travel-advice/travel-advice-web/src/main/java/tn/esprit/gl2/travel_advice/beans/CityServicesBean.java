@@ -27,7 +27,11 @@ public class CityServicesBean {
 		showCities = false;
 		return "";
 	}
-
+	public String doDeSelect() {
+		showTouristicPlacesByCity = false;
+		showCities = true;
+		return "";
+	}
 	public String doComment() {
 		return "/pages/addComment?faces-redirect=true";
 	}

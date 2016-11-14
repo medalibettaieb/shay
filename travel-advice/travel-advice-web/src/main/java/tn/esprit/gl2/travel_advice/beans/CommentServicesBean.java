@@ -24,8 +24,13 @@ public class CommentServicesBean implements Serializable {
 	private String text;
 
 	public String doAddComment() {
-		comments = commentServicesLocal.findAllCommentsByTouristicPlaceId(loginBean.getIdT());
 		commentServicesLocal.addComment(loginBean.getUser().getId(), loginBean.getIdT(), text);
+		comments = commentServicesLocal.findAllCommentsByTouristicPlaceId(loginBean.getIdT());
+		return "/pages/listComment?faces-redirect=true";
+	}
+
+	public String doRefrech() {
+		comments = commentServicesLocal.findAllCommentsByTouristicPlaceId(loginBean.getIdT());
 		return "";
 	}
 
